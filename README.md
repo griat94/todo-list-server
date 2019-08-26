@@ -8,15 +8,25 @@
   [![Windows Build][appveyor-image]][appveyor-url]
   [![Test Coverage][coveralls-image]][coveralls-url]
 
+## Overview
+
+This project is using these 3 primary operations.
+
 ```js
-const express = require('express')
-const app = express()
+var express = require('express');
+var router = express.Router();
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
-})
+router.get('/', function (req, res, next) {
+    res.send(todoList);
+});
 
-app.listen(3000)
+router.post('/', function (req, res, next) {
+  ...
+});
+
+router.delete('/:id', function (req, res) {
+  ...
+});
 ```
 
 ## Installation
@@ -56,27 +66,11 @@ for more information.
   * [Google Group](https://groups.google.com/group/express-js) for discussion
   * [Gitter](https://gitter.im/expressjs/express) for support and discussion
 
-**PROTIP** Be sure to read [Migrating from 3.x to 4.x](https://github.com/expressjs/express/wiki/Migrating-from-3.x-to-4.x) as well as [New features in 4.x](https://github.com/expressjs/express/wiki/New-features-in-4.x).
-
 ### Security Issues
 
 If you discover a security vulnerability in Express, please see [Security Policies and Procedures](Security.md).
 
 ## Quick Start
-
-  The quickest way to get started with express is to utilize the executable [`express(1)`](https://github.com/expressjs/generator) to generate an application as shown below:
-
-  Install the executable. The executable's major version will match Express's:
-
-```bash
-$ npm install -g express-generator@4
-```
-
-  Create the app:
-
-```bash
-$ express /tmp/foo && cd /tmp/foo
-```
 
   Install dependencies:
 
@@ -101,31 +95,6 @@ $ npm start
   Express does not force you to use any specific ORM or template engine. With support for over
   14 template engines via [Consolidate.js](https://github.com/tj/consolidate.js),
   you can quickly craft your perfect framework.
-
-## Examples
-
-  To view the examples, clone the Express repo and install the dependencies:
-
-```bash
-$ git clone git://github.com/expressjs/express.git --depth 1
-$ cd express
-$ npm install
-```
-
-  Then run whichever example you want:
-
-```bash
-$ node examples/content-negotiation
-```
-
-## Tests
-
-  To run the test suite, first install the dependencies, then run `npm test`:
-
-```bash
-$ npm install
-$ npm test
-```
 
 ## Contributing
 
